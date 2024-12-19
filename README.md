@@ -1,10 +1,10 @@
 #𝗚𝗢𝗔𝗧 𝗕𝗢𝗧 𝗕𝗬 𝗡𝗧𝗞𝗛𝗔𝗡𝗚
 # PROJECT CREATOR</h1>
-<img src="./dashboard/images/logo.jpg" alt="walker">
+<img src="https://i.ibb.co/ynFjJRy/image.jpg" alt="walker">
 <h1 align="center"><img src="https://i.ibb.co/ynFjJRy/image.jpg" width="22px"> 
 
 # FB PROFILE PHOTO</h1>
-<img src="./dashboard/images/metoushela.jpg" alt="banner">
+<img src="https://i.ibb.co/ZXs2c6M/image.jpg" alt="banner">
 <h1 align="center"><img src="https://i.ibb.co/ZXs2c6M/image.jpg" width="22px"> 
  
   # ANOTHER-ME 🍀- ABOUT PROJECT INFORMATION</h1>
