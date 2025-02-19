@@ -54,6 +54,11 @@ module.exports = {
 	},
 
 	onStart: async function ({ args, message, event, envCommands, usersData, commandName, getLang }) {
+		// Vérification et création du fichier balance.json s'il n'existe pas
+		if (!fs.existsSync(balanceFile)) {
+			fs.writeFileSync(balanceFile, JSON.stringify({}, null, 2));
+		}
+
 		const reward = envCommands[commandName].rewardFirstDay;
 
 		if (args[0] === "info") {
@@ -91,12 +96,7 @@ module.exports = {
 		});
 
 		// Charger les données bancaires
-		let bankData = {};
-		try {
-			bankData = JSON.parse(fs.readFileSync(balanceFile));
-		} catch (error) {
-			console.error("Erreur lors de la lecture de balance.json", error);
-		}
+		let bankData = JSON.parse(fs.readFileSync(balanceFile));
 
 		// Ajouter l'argent dans `balance.json`
 		if (!bankData[senderID]) {
