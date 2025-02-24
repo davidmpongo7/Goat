@@ -1,0 +1,117 @@
+module.exports = {
+  config: {
+    name: "numbers",
+    version: "1.0",
+    author: "Uchiha Perdu",
+    role: 0,
+    shortDescription: {
+      en: "Displays large number names",
+    },
+    longDescription: {
+      en: "Shows the names of very large numbers.",
+    },
+    category: "Other",
+    guide: {
+      en: "{pn}",
+    },
+  },
+
+  onStart: function ({ event, message }) {
+    const largenumbers = [
+      { value: 1e306, label: "Uncentillion" },
+      { value: 1e303, label: "Centillion" },
+      { value: 1e300, label: "Novenonagintillion" },
+      { value: 1e297, label: "Octononagintillion" },
+      { value: 1e294, label: "Septenonagintillion" },
+      { value: 1e291, label: "Senonagintillion" },
+      { value: 1e288, label: "Quinonagintillion" },
+      { value: 1e285, label: "Quattuornonagintillion" },
+      { value: 1e282, label: "Trenonagintillion" },
+      { value: 1e279, label: "Duononagintillion" },
+      { value: 1e276, label: "Unnonagintillion" },
+      { value: 1e273, label: "Nonagintillion" },
+      { value: 1e270, label: "Novenoctogintillion" },
+      { value: 1e267, label: "Octooctogintillion" },
+      { value: 1e264, label: "Septemoctogintillion" },
+      { value: 1e261, label: "Sexoctogintillion" },
+      { value: 1e258, label: "Quinoctogintillion" },
+      { value: 1e255, label: "Quattuoroctogintillion" },
+      { value: 1e252, label: "Treoctogintillion" },
+      { value: 1e249, label: "Duooctogintillion" },
+      { value: 1e246, label: "Unoctogintillion" },
+      { value: 1e243, label: "Octogintillion" },
+      { value: 1e240, label: "Novenseptuagintillion" },
+      { value: 1e237, label: "Octoseptuagintillion" },
+      { value: 1e234, label: "Septenseptuagintillion" },
+      { value: 1e231, label: "Sexseptuagintillion" },
+      { value: 1e228, label: "Quinseptuagintillion" },
+      { value: 1e225, label: "Quattuorseptuagintillion" },
+      { value: 1e222, label: "Treseptuagintillion" },
+      { value: 1e219, label: "Duoseptuagintillion" },
+      { value: 1e216, label: "Unseptuagintillion" },
+      { value: 1e213, label: "Septuagintillion" },
+      { value: 1e210, label: "Novensexagintillion" },
+      { value: 1e207, label: "Octosexagintillion" },
+      { value: 1e204, label: "Septensexagintillion" },
+      { value: 1e201, label: "Sexsexagintillion" },
+      { value: 1e198, label: "Quinsexagintillion" },
+      { value: 1e195, label: "Quattuorsexagintillion" },
+      { value: 1e192, label: "Tresexagintillion" },
+      { value: 1e189, label: "Duosexagintillion" },
+      { value: 1e186, label: "Unsexagintillion" },
+      { value: 1e183, label: "Sexagintillion" },
+      { value: 1e180, label: "Novenquinquagintillion" },
+      { value: 1e177, label: "Octoquinquagintillion" },
+      { value: 1e174, label: "Septenquinquagintillion" },
+      { value: 1e171, label: "Sexquinquagintillion" },
+      { value: 1e168, label: "Quinquinquagintillion" },
+      { value: 1e165, label: "Quattuorquinquagintillion" },
+      { value: 1e162, label: "Trequinquagintillion" },
+      { value: 1e159, label: "Duoquinquagintillion" },
+      { value: 1e156, label: "Unquinquagintillion" },
+      { value: 1e153, label: "Quinquagintillion" },
+      { value: 1e150, label: "Novenquadragintillion" },
+      { value: 1e147, label: "Octoquadragintillion" },
+      { value: 1e144, label: "Septenquadragintillion" },
+      { value: 1e141, label: "Sexquadragintillion" },
+      { value: 1e138, label: "Quinquadragintillion" },
+      { value: 1e135, label: "Quattuorquadragintillion" },
+      { value: 1e132, label: "Trequadragintillion" },
+      { value: 1e129, label: "Duoquadragintillion" },
+      { value: 1e126, label: "Unquadragintillion" },
+      { value: 1e123, label: "Quadragintillion" },
+      { value: 1e120, label: "Noventrigintillion" },
+      { value: 1e117, label: "Octotrigintillion" },
+      { value: 1e114, label: "Septentrigintillion" },
+      { value: 1e111, label: "Sextrigintillion" },
+      { value: 1e108, label: "Quinquatrigintillion" },
+      { value: 1e105, label: "Quattuortrigintillion" },
+      { value: 1e102, label: "Tretrigintillion" },
+      { value: 1e99, label: "Duotrigintillion" },
+      { value: 1e96, label: "Untrigintillion" },
+      { value: 1e93, label: "Trigintillion" },
+      { value: 1e90, label: "Nonillion" },
+      { value: 1e87, label: "Octillion" },
+      { value: 1e84, label: "Septillion" },
+      { value: 1e81, label: "Sextillion" },
+      { value: 1e78, label: "Quintillion" },
+      { value: 1e75, label: "Quadrillion" },
+      { value: 1e72, label: "Trillion" },
+      { value: 1e69, label: "Billion" },
+      { value: 1e66, label: "Milliard" },
+      { value: 1e63, label: "Million" },
+    ];
+
+    message.reply("Liste des grands nombres disponibles !");
+  },
+};
+function convertNumberToName(value) {
+    for (const num of largenumbers) {
+        if (value >= num.value) {
+            return `${value / num.value} ${num.label}`;
+        }
+    }
+    return value.toString();
+}
+
+module.exports = { largenumbers, convertNumberToName };
